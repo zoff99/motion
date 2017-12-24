@@ -1,0 +1,28 @@
+machine:
+  timezone:
+    Europe/Berlin
+  environment:
+    MAKEFLAGS: "j4"
+dependencies:
+  pre:
+  - sudo apt-get update
+  - sudo apt-get install clang
+  - sudo apt-get install build-essential libtool autotools-dev automake checkinstall check git yasm
+  - sudo apt-get install libopus-dev libvpx-dev pkg-config
+
+  - gcc --version ; exit 0
+  - clang --version ; exit 0
+
+compile:
+  override:
+  - ./configure --help
+  - ./configure
+  - make
+  - make test ; exit 0
+test:
+  override:
+  - echo dummy
+
+
+
+
