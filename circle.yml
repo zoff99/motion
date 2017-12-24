@@ -3,6 +3,7 @@ machine:
     Europe/Berlin
   environment:
     MAKEFLAGS: "j4"
+    BUILD__: "ubuntu_14_04"
 dependencies:
   pre:
   - sudo apt-get update
@@ -27,7 +28,7 @@ test:
   override:
   - make install
   - ls -alR /home/ubuntu/inst/
-
+  - cd /home/ubuntu/inst/ ; tar -czvf $CIRCLE_ARTIFACTS/"$BUILD__"/motion_pkg.tar.gz *
 
 
 
