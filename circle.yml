@@ -22,10 +22,11 @@ compile:
   - mkdir -p /home/ubuntu/inst/
   - ./configure --prefix=/home/ubuntu/inst/
   - make
-  - make test ; exit 0
+  - make check ; exit 0
 test:
   override:
-  - echo dummy
+  - make install
+  - ls -alR /home/ubuntu/inst/
 
 
 
