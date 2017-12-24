@@ -15,7 +15,6 @@ dependencies:
 
   - gcc --version ; exit 0
   - clang --version ; exit 0
-
 compile:
   override:
   - autoreconf -fiv
