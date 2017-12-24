@@ -16,7 +16,8 @@ dependencies:
 compile:
   override:
   - ./configure --help
-  - ./configure
+  - mkdir -p /home/ubuntu/inst/
+  - ./configure --prefix=/home/ubuntu/inst/
   - make
   - make test ; exit 0
 test:
