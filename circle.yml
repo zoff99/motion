@@ -9,12 +9,16 @@ dependencies:
   - sudo apt-get install clang
   - sudo apt-get install build-essential libtool autotools-dev automake checkinstall check git yasm
   - sudo apt-get install libopus-dev libvpx-dev pkg-config
+  - sudo apt-get install build-essential libjpeg8-dev libzip-dev autoconf automake pkgconf libtool git
+  - sudo apt-get install libavformat-dev libavcodec-dev libavutil-dev libswscale-dev libavdevice-dev
+  - sudo apt-get install libsqlite3-dev libpq-dev libmysqlclient-dev libwebp-dev
 
   - gcc --version ; exit 0
   - clang --version ; exit 0
 
 compile:
   override:
+  - autoreconf -fiv
   - ./configure --help
   - mkdir -p /home/ubuntu/inst/
   - ./configure --prefix=/home/ubuntu/inst/
